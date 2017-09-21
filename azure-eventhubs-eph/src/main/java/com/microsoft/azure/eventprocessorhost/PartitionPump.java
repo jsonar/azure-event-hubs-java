@@ -77,6 +77,7 @@ abstract class PartitionPump
         {
             // There was an error in specialized startup, so clean up the processor.
             this.pumpStatus = PartitionPumpStatus.PP_CLOSING;
+            if (this.processor!=null)
             try
             {
                 this.processor.onClose(this.partitionContext, CloseReason.Shutdown);
